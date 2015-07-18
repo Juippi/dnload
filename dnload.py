@@ -2920,7 +2920,7 @@ def locate(pth, fn):
   try:
     for ii in os.listdir(pth):
       iifn = pth + "/" + ii
-      if os.path.isdir(iifn):
+      if os.path.isdir(iifn) and not os.path.islink(iifn):
         ret = locate(iifn, fn)
         if ret:
           return ret
